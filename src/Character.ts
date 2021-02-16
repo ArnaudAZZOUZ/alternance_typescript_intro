@@ -1,7 +1,10 @@
+import {Enemy} from "./Enemy";
+
 export class Character {
     private _username: string;
     private _life: number;
     private _sex: string;
+
 
     constructor(username: string, life: number, sex: string) {
         this._username = username;
@@ -12,8 +15,15 @@ export class Character {
 
     summary(perso: Character) {
         console.log(perso.username, perso.life, perso.sex)
+
     }
 
+    attack(enemy: Enemy) {
+        let attack = Math.floor(Math.random() * (100 - 1))+1;
+        console.log("u attack is: "+ attack);
+        enemy.life = enemy.life - attack;
+
+    }
 
     get username(): string {
         return this._username;

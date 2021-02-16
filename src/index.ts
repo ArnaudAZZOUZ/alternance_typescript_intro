@@ -1,4 +1,6 @@
 import {Character} from "./Character";
+import {Enemy} from "./Enemy";
+import {KungFuFighting} from "./KungFuFighting";
 
 const prompts = require('prompts');
 const questions = [
@@ -36,11 +38,26 @@ const combat = [
     const respfirtFight = await prompts(combat);
     if (respfirtFight.choice === 1) {
         console.log('you r brave!');
+        let gobelin = new Enemy("Gobelin");
+        let firstFight= new KungFuFighting()
+        firstFight.fight(gobelin,player1);
     }else
     if (respfirtFight.choice === 2) {
         console.log('you r looser!');
     } else {
         console.log('what haven\'t you got??')
     }
-
+    console.log('Ennemi en approche !');
+    const respSecFight = await prompts(combat);
+    if (respSecFight.choice === 1) {
+        console.log('you r brave!');
+        let dragon = new Enemy("dragon");
+        let firstFight= new KungFuFighting()
+        firstFight.fight(dragon,player1);
+    }else
+    if (respSecFight.choice === 2) {
+        console.log('you r looser!');
+    } else {
+        console.log('what haven\'t you got??')
+    }
 })();
